@@ -1,0 +1,528 @@
+:root {
+    --primary-color: #28a745;
+    --secondary-color: #f8f9fa;
+    --dark-color: #212529;
+    --accent-color: #20c997;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+.py-6 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.hero-section {
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0.98) 0%, 
+        rgba(255, 255, 255, 0.9) 35%, 
+        rgba(255, 255, 255, 0.5) 65%,
+        rgba(255, 255, 255, 0) 100%),
+        url('../img/background.png');
+    background-size: contain;
+    background-position: 90% center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: -1px;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, white);
+    z-index: 1;
+}
+
+.btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-success::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+.btn-success:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.premium-card {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.service-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(40, 167, 69, 0.1) 0%, transparent 70%);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+.service-icon i {
+    font-size: 1.5rem;
+}
+
+.premium-form {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border-radius: 1.5rem;
+}
+
+.form-control, .form-select {
+    border: 2px solid rgba(40, 167, 69, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.15);
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-section {
+        background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.8) 100%),
+            url('../img/background.png');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 4rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    /* Ajustes para os cards */
+    .premium-card {
+        max-width: 320px;
+        margin: 0 auto;
+        text-align: center;
+        transform: scale(0.98);
+        transition: transform 0.3s ease;
+    }
+
+    .premium-card:active {
+        transform: scale(0.95);
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: rgba(40, 167, 69, 0.08);
+        backdrop-filter: blur(4px);
+    }
+
+    .service-icon i {
+        font-size: 2rem;
+    }
+
+    .premium-card .card-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .premium-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .premium-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Ajuste do grid para melhor visualização */
+    .row.g-4 {
+        --bs-gutter-y: 2rem;
+    }
+
+    .col-md-4 {
+        margin-bottom: 1rem;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .developed-by {
+        margin-top: 1rem;
+    }
+}
+
+/* Animação suave ao aparecer os cards */
+@media (max-width: 768px) {
+    .fade-in {
+        transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+        transform: translateY(0) scale(1);
+    }
+
+    .fade-in:not(.visible) {
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* Melhorar o efeito de hover em touch devices */
+@media (hover: none) {
+    .premium-card:active {
+        transform: translateY(-5px);
+        transition: transform 0.2s ease;
+    }
+}
+
+/* Opcional: Adicione um efeito de parallax suave */
+@media (min-width: 769px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
+
+/* Efeitos de hover nos cards */
+.premium-card .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.premium-card:hover::before {
+    opacity: 1;
+}
+
+/* Footer elegante */
+.footer {
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(40, 167, 69, 0.2),
+        transparent
+    );
+}
+
+.footer-specialties li,
+.footer-contact li {
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.footer-specialties li i {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+}
+
+.footer-contact li a {
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.footer-contact li a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+    display: inline-block;
+}
+
+.footer-contact li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.footer-credits {
+    text-align: right;
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .footer-credits {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .footer h4 {
+        margin-top: 1.5rem;
+    }
+
+    .footer-contact li a:hover {
+        transform: translateX(0);
+    }
+}
+
+.developed-by {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.developed-by a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.developed-by a:hover {
+    color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.developed-by i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+/* Melhorias na tipografia */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+.display-4 {
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Efeito de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhorias na acessibilidade */
+:focus {
+    outline: 3px solid rgba(40, 167, 69, 0.2);
+    outline-offset: 2px;
+}
+
+/* Media queries para diferentes tamanhos de tela */
+@media (min-width: 1400px) {
+    .hero-section {
+        background-position: 75% center;
+        background-size: 50% auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .hero-section {
+        background-position: 85% center;
+        background-size: 55% auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-section {
+        background-position: 90% center;
+        background-size: 60% auto;
+    }
+}
+
+/* Estilos do Header e Logo */
+.site-header {
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0.98),
+        rgba(255, 255, 255, 0.95));
+    border-bottom: 1px solid rgba(40, 167, 69, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    animation: logoFadeIn 0.8s ease forwards;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.logo-text {
+    text-align: left;
+}
+
+.logo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.1rem;
+    letter-spacing: -0.02em;
+}
+
+.logo-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsividade do header */
+@media (max-width: 768px) {
+    .logo-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        text-align: center;
+    }
+
+    .logo-title {
+        font-size: 1.3rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.75rem;
+    }
+}
+
+/* Efeito de hover na logo */
+.logo-wrapper:hover .logo-icon {
+    transform: rotate(5deg);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+/* Animação suave na logo ao carregar a página */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
